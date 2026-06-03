@@ -1,0 +1,26 @@
+name: Documentation improvement
+description: Suggest a documentation update
+title: "Docs: "
+labels: [documentation]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What should be improved?
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Related files
+      description: List related files if known.
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Done when
+      description: What should be true after the update?
+    validations:
+      required: false

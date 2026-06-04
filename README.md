@@ -2,7 +2,7 @@
 
 MUSE-AI is a public documentation repository for AI-assisted application architecture and compatibility-first frontend migration notes.
 
-It is intentionally separated from private production work. It is intended for public documentation, open-source review, and future Codex OSS application material.
+It is intentionally separated from private production work and is intended for public documentation, open-source review, and future Codex OSS application material.
 
 ## Purpose
 

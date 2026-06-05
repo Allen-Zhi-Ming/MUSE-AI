@@ -1,20 +1,20 @@
 # MUSE-AI
 
-MUSE-AI is a public documentation repository for AI-assisted application architecture and compatibility-first frontend migration notes.
+MUSE-AI is a public documentation repository for AI-assisted application architecture, migration planning, and contributor-facing project guidance.
 
-It is intentionally separated from private production work. It is intended for public documentation, open-source review, and future Codex OSS application material.
+It stays intentionally separate from private production work. The repository exists to share public docs, support open-source review, and collect material that can later grow into example OSS applications.
 
 ## Purpose
 
-- Document safe AI-assisted development workflow.
-- Document React and Vite migration practices.
-- Provide public project governance files.
-- Track compatibility-first migration notes.
-- Keep private product work outside this repository.
+- Explain a safe AI-assisted development workflow.
+- Capture React and Vite migration practices in public-facing notes.
+- Provide contributor and governance files for open review.
+- Track compatibility-first migration decisions and constraints.
+- Keep private product work out of this repository.
 
 ## Current status
 
-This is a documentation-first public foundation. Production code has not been imported.
+This repository is currently documentation-first. It does not include production code, and its current role is to make scope, architecture, and migration intent easy for new visitors to understand.
 
 ## Repository map
 

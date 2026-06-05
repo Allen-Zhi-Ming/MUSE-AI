@@ -2,12 +2,12 @@
 
 ## Maintenance goal
 
-Keep MUSE-AI useful as a public documentation repository for AI-assisted architecture and frontend migration notes.
+Keep MUSE-AI useful as a public documentation repository for AI-assisted architecture, migration planning, and contributor-facing project guidance.
 
 ## Near-term work
 
 - Improve README clarity.
-- Expand migration notes.
+- Expand migration planning notes.
 - Add small mock examples only after review.
 - Keep contribution rules simple.
 - Keep security guidance easy to follow.
@@ -29,4 +29,4 @@ Before each update, check:
 
 ## Codex use cases
 
-Codex can help review docs, suggest clearer examples, and check consistency across files.
+Codex can help review docs, suggest clearer examples, and check consistency across public-facing files.

@@ -2,9 +2,9 @@
 
 ## Public scope
 
-MUSE-AI is a public documentation repository for AI-assisted application architecture, frontend migration notes, and project governance.
+MUSE-AI is a public documentation repository for AI-assisted application architecture, migration planning, and project governance.
 
-The current repository is intentionally documentation-first.
+The repository is intentionally documentation-first today.
 
 ## Included now
 
@@ -28,4 +28,4 @@ The current repository is intentionally documentation-first.
 
 Future updates may add small examples that use mock data only.
 
-Any future code example should be reviewed before publishing.
+Any future code example should stay easy to review and should be checked before publishing.

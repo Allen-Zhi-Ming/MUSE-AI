@@ -1,0 +1,502 @@
+{
+  "projects": [
+    {
+      "id": "p1",
+      "name": "品牌重構 2025",
+      "color": "#C5A059",
+      "phase": "Discovery",
+      "brief": "為「WaveForm」品牌進行完整定位重構，目標受眾為 25–40 歲創意工作者，核心差異化方向為「工具即創作夥伴」。所有 AI 回應必須符合此框架。",
+      "folders": [
+        {
+          "id": "fo1",
+          "name": "市場研究",
+          "parentId": null
+        },
+        {
+          "id": "fo2",
+          "name": "競品分析",
+          "parentId": null
+        }
+      ],
+      "files": [
+        {
+          "id": "fi1",
+          "name": "市場調查報告.pdf",
+          "type": "pdf",
+          "folderId": "fo1",
+          "size": "2.4 MB",
+          "content": "市場調查報告：WaveForm 品牌重構市場定位深度研究\n報告日期：2026 年 5 月\n目標受眾：25–40 歲創意工作者\n調查樣本數：1,200 份有效問卷\n\n一、核心研究發現\n1. 82% 的創意工作者表示現用工具過於冰冷，缺乏情感連結。\n2. 「工具即創作夥伴」是目前市場上未被滿足的巨大空白點。\n3. 對於微服務與即時協作功能的需求在過去兩年中增長了 150%。\n\n二、用戶畫像 (Personas)\n- 視覺設計師 YC：注重細節與美感，期待工具有個性與溫度。\n- 軟體工程師 Ray W.：關注性能與延遲，但希望工具的界面保持乾對與禪意。\n\n三、市場競爭格局\n現有競品（如 Ableton, Adobe）功能強大但架構繁重，對自由創作者的親和力不足。WaveForm 應以「高奢奶油風」、「情感化引導」與「極致流暢度」切入市場差異化。",
+          "versions": [
+            {
+              "id": "v_fi1_1",
+              "timestamp": "3天前",
+              "content": "市場調查報告：WaveForm 品牌重構市場定位深度研究\n報告日期：2026 年 5 月\n目標受眾：25–40 歲創意工作者\n調查樣本數：1,200 份有效問卷\n\n一、核心研究發現\n1. 82% 的創意工作者表示現用工具過於冰冷，缺乏情感連結。\n2. 「工具即創作夥伴」是目前市場上未被滿足的巨大空白點。\n3. 對於微服務與即時協作功能的需求在過去兩年中增長了 150%。\n\n二、用戶畫像 (Personas)\n- 視覺設計師 YC：注重細節與美感，期待工具有個性與溫度。\n- 軟體工程師 Ray W.：關注性能與延遲，但希望工具的界面保持乾對與禪意。\n\n三、市場競爭格局\n現有競品（如 Ableton, Adobe）功能強大但架構繁重，對自由創作者的親和力不足。WaveForm 應以「高奢奶油風」、「情感化引導」與「極致流暢度」切入市場差異化。",
+              "author": "You",
+              "versionLabel": "V1"
+            }
+          ]
+        },
+        {
+          "id": "fi2",
+          "name": "競品分析 Q1.docx",
+          "type": "docx",
+          "folderId": "fo2",
+          "size": "840 KB",
+          "content": "專案：WaveForm Q1 核心競品分析報告\n建立者：You (Owner) & Lisa M.\n\n一、主要競品清單\n1. Ableton Live - 音訊處理與 Live 演奏霸主。\n   - 優勢：專業度極高，生態系完整。\n   - 弱點：介面繁雜，新手學習曲線陡峭，品牌形象偏向硬核技術風。\n2. Adobe Creative Cloud - 創意設計全家桶。\n   - 優勢：壟斷級市佔率，工具鏈無縫接軌。\n   - 弱點：訂閱費用高昂，軟體啟動緩慢，雲端協作體驗不佳。\n\n二、WaveForm SWOT 戰略矩陣\n- 強勢 (Strengths): 極簡禪意視覺設計、毫秒級即時協作、高奢美學引導。\n- 劣勢 (Weaknesses): 品牌初創，市場知名度待建立。\n- 機會 (Opportunities): 創作者經濟爆發，年輕世代對個性化、高美感工具的極度渴望。\n- 威脅 (Threats): 大廠快速複製極簡化產品線。\n\n三、戰略決策點\nWaveForm 必須堅守「創作夥伴」的情感定位，不與 Ableton 競爭規格參數，而是專注於「沉浸式創作氛圍」與「高效率跨端協同」。",
+          "versions": [
+            {
+              "id": "v_fi2_1",
+              "timestamp": "3天前",
+              "content": "專案：WaveForm Q1 核心競品分析報告\n建立者：You (Owner) & Lisa M.\n\n一、主要競品清單\n1. Ableton Live - 音訊處理與 Live 演奏霸主。\n   - 優勢：專業度極高，生態系完整。\n   - 弱點：介面繁雜，新手學習曲線陡峭，品牌形象偏向硬核技術風。\n2. Adobe Creative Cloud - 創意設計全家桶。\n   - 優勢：壟斷級市佔率，工具鏈無縫接軌。\n   - 弱點：訂閱費用高昂，軟體啟動緩慢，雲端協作體驗不佳。\n\n二、WaveForm SWOT 戰略矩陣\n- 強勢 (Strengths): 極簡禪意視覺設計、毫秒級即時協作、高奢美學引導。\n- 劣勢 (Weaknesses): 品牌初創，市場知名度待建立。\n- 機會 (Opportunities): 創作者經濟爆發，年輕世代對個性化、高美感工具的極度渴望。\n- 威脅 (Threats): 大廠快速複製極簡化產品線。\n\n三、戰略決策點\nWaveForm 必須堅守「創作夥伴」的情感定位，不與 Ableton 競爭規格參數，而是專注於「沉浸式創作氛圍」與「高效率跨端協同」。",
+              "author": "You",
+              "versionLabel": "V1"
+            }
+          ]
+        },
+        {
+          "id": "fi3",
+          "name": "用戶訪談數據.xlsx",
+          "type": "xlsx",
+          "folderId": null,
+          "size": "1.1 MB",
+          "content": "姓名,職業,年齡,核心痛點,使用習慣,付費意願\n視覺設計師 YC,品牌設計,28,工具缺乏溫度,每天使用 8 小時+,願意付費 ($30/mo)\nLisa M.,UI設計師,32,協作時延遲高,每週使用 3 次,願意付費 ($25/mo)\nKen C.,自由攝影師,35,檔案管理雜亂,偶爾使用,中等付費意願\nRay W.,全端工程師,27,編輯器啟動慢,重度依賴,高付費意願",
+          "versions": [
+            {
+              "id": "v_fi3_1",
+              "timestamp": "3天前",
+              "content": "姓名,職業,年齡,核心痛點,使用習慣,付費意願\n視覺設計師 YC,品牌設計,28,工具缺乏溫度,每天使用 8 小時+,願意付費 ($30/mo)\nLisa M.,UI設計師,32,協作時延遲高,每週使用 3 次,願意付費 ($25/mo)\nKen C.,自由攝影師,35,檔案管理雜亂,偶爾使用,中等付費意願\nRay W.,全端工程師,27,編輯器啟動慢,重度依賴,高付費意願",
+              "author": "You",
+              "versionLabel": "V1"
+            }
+          ]
+        },
+        {
+          "id": "fi4",
+          "name": "Brand guidelines v3",
+          "type": "link",
+          "folderId": null,
+          "size": null,
+          "content": "",
+          "versions": [
+            {
+              "id": "v_fi4_1",
+              "timestamp": "3天前",
+              "content": "",
+              "author": "You",
+              "versionLabel": "V1"
+            }
+          ]
+        }
+      ],
+      "threads": [
+        {
+          "id": "th1",
+          "title": "定位策略分析",
+          "mode": "analyst",
+          "msgCount": 8,
+          "ts": "10:42"
+        },
+        {
+          "id": "th2",
+          "title": "Messaging 審查",
+          "mode": "critique",
+          "msgCount": 3,
+          "ts": "09:15"
+        }
+      ],
+      "members": [
+        {
+          "id": "mb1",
+          "i": "YC",
+          "name": "You (owner)",
+          "role": "owner",
+          "c": "#C5A059"
+        },
+        {
+          "id": "mb2",
+          "i": "LM",
+          "name": "Lisa M.",
+          "role": "editor",
+          "c": "#6c8ac0"
+        },
+        {
+          "id": "mb3",
+          "i": "KC",
+          "name": "Ken C.",
+          "role": "viewer",
+          "c": "#76b193"
+        }
+      ],
+      "tokenUsage": 24800,
+      "tokenLimit": 100000
+    },
+    {
+      "id": "p2",
+      "name": "Q3 財務分析",
+      "color": "#6c8ac0",
+      "phase": "Analysis",
+      "brief": "針對 Q3 財務數據深度分析，聚焦異常支出與成長瓶頸。輸出格式：董事會簡報。",
+      "folders": [],
+      "files": [
+        {
+          "id": "fi5",
+          "name": "Q3_financial.xlsx",
+          "type": "xlsx",
+          "folderId": null,
+          "size": "3.2 MB",
+          "content": "姓名,預算,支出,結餘,備註\n行銷部門,50000,48000,2000,合規\n研發團隊,120000,118000,2000,合規\n運營維護,30000,35000,-5000,超支",
+          "versions": [
+            {
+              "id": "v_fi5_1",
+              "timestamp": "4天前",
+              "content": "姓名,預算,支出,結餘,備註\n行銷部門,50000,48000,2000,合規\n研發團隊,120000,118000,2000,合規\n運營維護,30000,35000,-5000,超支",
+              "author": "You",
+              "versionLabel": "V1"
+            }
+          ]
+        }
+      ],
+      "threads": [
+        {
+          "id": "th3",
+          "title": "支出異常分析",
+          "mode": "analyst",
+          "msgCount": 5,
+          "ts": "昨天"
+        }
+      ],
+      "members": [
+        {
+          "id": "mb1",
+          "i": "YC",
+          "name": "You (owner)",
+          "role": "owner",
+          "c": "#C5A059"
+        }
+      ],
+      "tokenUsage": 8400,
+      "tokenLimit": 100000
+    },
+    {
+      "id": "p3",
+      "name": "系統架構評估",
+      "color": "#a898bc",
+      "phase": "Synthesis",
+      "brief": "評估微服務架構擴展瓶頸，提出重構建議。技術棧：Node.js + PostgreSQL + Redis。",
+      "folders": [
+        {
+          "id": "fo3",
+          "name": "技術文件",
+          "parentId": null
+        }
+      ],
+      "files": [
+        {
+          "id": "fi6",
+          "name": "current_arch.md",
+          "type": "md",
+          "folderId": "fo3",
+          "size": "12 KB",
+          "content": "# WaveForm 系統架構評估報告\n\n## 1. 目前架構藍圖 (Current Microservices Arch)\n- **前端工作區：** React 19 SPA + Vite + Tailwind CSS，為創作者提供莫蘭迪高奢單機操作感。\n- **後端文件處理核心：** Node.js Express + TSX，負責二進位 PDF/Excel/Word 的實體導出與 Google OAuth 會話管理。\n- **通訊與協同：** 純單機個人工作區模型，具備基於 Redux 的本地虛擬檔案系統持久化。\n\n## 2. 擴展瓶頸與重構方向\n- **本地持久化限制：** 隨著專案規模變大，全量儲存於 Redux State 的體積會上升，未來建議介接 IndexedDB 或 Supabase。\n- **編輯版本追蹤：** 已實作 client-side 行級 Line-by-Line Diff 版本對比器，極大提高了系統的技術壁壘與精緻度。",
+          "versions": [
+            {
+              "id": "v_fi6_1",
+              "timestamp": "5天前",
+              "content": "# WaveForm 系統架構評估報告\n\n## 1. 目前架構藍圖 (Current Microservices Arch)\n- **前端工作區：** React 19 SPA + Vite + Tailwind CSS，為創作者提供莫蘭迪高奢單機操作感。\n- **後端文件處理核心：** Node.js Express + TSX，負責二進位 PDF/Excel/Word 的實體導出與 Google OAuth 會話管理。\n- **通訊與協同：** 純單機個人工作區模型，具備基於 Redux 的本地虛擬檔案系統持久化。\n\n## 2. 擴展瓶頸與重構方向\n- **本地持久化限制：** 隨著專案規模變大，全量儲存於 Redux State 的體積會上升，未來建議介接 IndexedDB 或 Supabase。\n- **編輯版本追蹤：** 已實作 client-side 行級 Line-by-Line Diff 版本對比器，極大提高了系統的技術壁壘與精緻度。",
+              "author": "You",
+              "versionLabel": "V1"
+            }
+          ]
+        }
+      ],
+      "threads": [
+        {
+          "id": "th4",
+          "title": "瓶頸識別",
+          "mode": "architect",
+          "msgCount": 2,
+          "ts": "2天前"
+        }
+      ],
+      "members": [
+        {
+          "id": "mb1",
+          "i": "YC",
+          "name": "You (owner)",
+          "role": "owner",
+          "c": "#C5A059"
+        },
+        {
+          "id": "mb4",
+          "i": "RW",
+          "name": "Ray W.",
+          "role": "editor",
+          "c": "#a898bc"
+        }
+      ],
+      "tokenUsage": 3200,
+      "tokenLimit": 100000
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "projectId": "p1",
+      "title": "撰寫 WaveForm 競品定位分析報導",
+      "desc": "彙整 Q1 競品分析報告並編製最終投影片",
+      "dueDate": "2026-05-21",
+      "priority": "high",
+      "status": "in_progress",
+      "reminder": true
+    },
+    {
+      "id": "t2",
+      "projectId": "p1",
+      "title": "準備創意受眾焦點訪談題目",
+      "desc": "擬定訪談大綱，鎖定 25-40 歲創意工作者",
+      "dueDate": "2026-05-22",
+      "priority": "medium",
+      "status": "todo",
+      "reminder": false
+    },
+    {
+      "id": "t3",
+      "projectId": "p2",
+      "title": "核對 Q3 行銷宣傳異常支出",
+      "desc": "分析 Facebook Ads 與 Google Ads 廣告花費是否有超支情況",
+      "dueDate": "2026-05-20",
+      "priority": "high",
+      "status": "done",
+      "reminder": true
+    },
+    {
+      "id": "t4",
+      "projectId": "p3",
+      "title": "微服務架構 Redis 緩存負載評估",
+      "desc": "測試高負載下 Redis 哨兵模式 of 自動故障轉移機制",
+      "dueDate": "2026-05-24",
+      "priority": "low",
+      "status": "todo",
+      "reminder": false
+    },
+    {
+      "id": "t5",
+      "projectId": null,
+      "title": "日常慢跑 & 冥想半小時",
+      "desc": "保持身心平穩，養成晨跑好習慣",
+      "dueDate": "2026-05-23",
+      "priority": "medium",
+      "status": "done",
+      "reminder": false
+    }
+  ],
+  "messages": {
+    "gt1": [
+      {
+        "id": "gm1",
+        "role": "user",
+        "content": "幫我分析 brand 定位策略，找出最大弱點",
+        "ts": "10:42",
+        "tokens": null
+      },
+      {
+        "id": "gm2",
+        "role": "assistant",
+        "mode": "spark",
+        "ts": "10:42",
+        "tokens": 482,
+        "content": "從現有定位來看，核心弱點集中在三個層面：\n\n**品牌識別度模糊** — 視覺語言在不同接觸點缺乏一致性，受眾記憶錨點分散。\n\n**目標受眾重疊** — 主次 persona 邊界模糊，行銷資源被迫分散配置。\n\n**差異化主張不夠鋒利** — 核心 value proposition 無法在 5 秒內傳達。"
+      }
+    ],
+    "gt2": [],
+    "gt3": [],
+    "st1": [
+      {
+        "id": "sm0",
+        "role": "assistant",
+        "mode": "studio",
+        "ts": "",
+        "tok": 0,
+        "content": "你好！我是你的 Content Studio ✨\n\n選擇上方的平台，告訴我你想發什麼內容，我來幫你寫出最適合的文案。"
+      }
+    ],
+    "jn1": [
+      {
+        "id": "jm0",
+        "role": "assistant",
+        "mode": "journal",
+        "ts": "",
+        "tok": 0,
+        "content": "今天是新的一天 📓\n\n選擇你現在的心情，或者直接告訴我今天發生了什麼事？我在這裡陪你。"
+      }
+    ],
+    "cm1": [
+      {
+        "id": "cm0",
+        "role": "assistant",
+        "mode": "comm",
+        "ts": "",
+        "tok": 0,
+        "content": "你好！我是你的溝通助手 💬\n\n選擇上方的情境，告訴我收到什麼訊息或你想說什麼，我來幫你找到最適合的表達方式。"
+      }
+    ],
+    "gr1": [
+      {
+        "id": "gr0",
+        "role": "assistant",
+        "mode": "growth",
+        "ts": "",
+        "tok": 0,
+        "content": "歡迎來到成長儀表板 📈\n\n你已經連續使用 7 天了 🔥\n\n想要我幫你生成本週成長報告，或者告訴我你正在培養的技能？"
+      }
+    ],
+    "hb1": [
+      {
+        "id": "hb0",
+        "role": "assistant",
+        "mode": "habit",
+        "ts": "",
+        "tok": 0,
+        "content": "今天的習慣打卡 🌱\n\n選擇上方的模式，我可以幫你：\n· 建立新習慣計劃\n· 購物決策分析\n· 能量週期規劃\n· 預算整理"
+      }
+    ],
+    "mk1": [
+      {
+        "id": "mk0",
+        "role": "assistant",
+        "mode": "market",
+        "ts": "",
+        "tok": 0,
+        "content": "歡迎來到模板市集 🛒\n\n瀏覽社群分享的 Prompt 模板，找到最適合你的，一鍵套用或自訂。\n\n你也可以上傳自己的模板，幫助其他創作者！"
+      }
+    ],
+    "mm1": [
+      {
+        "id": "mm0",
+        "role": "assistant",
+        "mode": "memory",
+        "ts": "",
+        "tok": 0,
+        "content": "嗨 YC！我記得你是視覺設計師，主要做品牌設計 🎨\n\n你的個人品牌目標是服務中小企業客戶，喜歡活潑但專業的語調。\n\n今天想聊什麼？或者，你想更新我對你的了解？"
+      }
+    ],
+    "th1": [
+      {
+        "id": "m1",
+        "role": "user",
+        "content": "分析 WaveForm 的 messaging hierarchy 問題",
+        "ts": "10:42",
+        "tokens": null
+      },
+      {
+        "id": "m2",
+        "role": "assistant",
+        "mode": "analyst",
+        "ts": "10:42",
+        "tokens": 1240,
+        "content": "基於「工具即創作夥伴」定位框架，hierarchy 存在三層問題：\n\n**首屏訊息失焦** — 強調功能參數（BPM, latency）而非情感連結。\n\n**中層 proof points 錯位** — 創意工作者買的是「創作可能性」不是「規格表」。\n\n**CTA 層缺乏橋接** — 「了解規格」直跳「立即購買」，跳過信任建立階段。"
+      }
+    ],
+    "th2": [],
+    "th3": [],
+    "th4": []
+  },
+  "genThreads": [
+    {
+      "id": "gt1",
+      "title": "品牌策略討論",
+      "mode": "spark",
+      "ts": "10:42"
+    },
+    {
+      "id": "gt2",
+      "title": "技術架構問答",
+      "mode": "architect",
+      "ts": "昨天"
+    },
+    {
+      "id": "gt3",
+      "title": "市場競品研究",
+      "mode": "analyst",
+      "ts": "2天前"
+    }
+  ],
+  "memoryItems": [
+    {
+      "id": "mi1",
+      "cat": "職業",
+      "content": "視覺設計師，主要做品牌設計與 UI",
+      "ts": "2h前"
+    },
+    {
+      "id": "mi2",
+      "cat": "目標",
+      "content": "建立個人品牌，目標客群為中小企業",
+      "ts": "昨天"
+    },
+    {
+      "id": "mi3",
+      "cat": "語調",
+      "content": "喜歡活潑但專業的語調，適量使用 emoji",
+      "ts": "昨天"
+    },
+    {
+      "id": "mi4",
+      "cat": "平台",
+      "content": "主要在 IG 和小紅書發文，受眾為 25–35 歲女性",
+      "ts": "2天前"
+    },
+    {
+      "id": "mi5",
+      "cat": "習慣",
+      "content": "每週日做週回顧，每天晚上11點前睡覺",
+      "ts": "3天前"
+    }
+  ],
+  "habits": [
+    {
+      "id": "hb1",
+      "name": "每日日記",
+      "done": false,
+      "streak": 7,
+      "icon": "📓"
+    },
+    {
+      "id": "hb2",
+      "name": "30分鐘閱讀",
+      "done": true,
+      "streak": 3,
+      "icon": "📚"
+    },
+    {
+      "id": "hb3",
+      "name": "運動20分鐘",
+      "done": false,
+      "streak": 1,
+      "icon": "🏃"
+    },
+    {
+      "id": "hb4",
+      "name": "喝足2L水",
+      "done": true,
+      "streak": 5,
+      "icon": "💧"
+    }
+  ],
+  "reflections": [
+    {
+      "id": "r1",
+      "date": "2024.05.15",
+      "mood": "happy",
+      "title": "品牌專案大進展",
+      "summary": "今天完成了 WaveForm 的核心定位重構，客戶非常滿意。感覺自己的策略思考能力提升了。"
+    },
+    {
+      "id": "r2",
+      "date": "2024.05.14",
+      "mood": "calm",
+      "title": "寧靜的早晨",
+      "summary": "嘗試了新的早起習慣，喝了咖啡並閱讀了 30 分鐘，心情非常穩定。"
+    }
+  ]
+}

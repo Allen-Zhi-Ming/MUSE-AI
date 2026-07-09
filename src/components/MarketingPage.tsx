@@ -229,7 +229,7 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
   const t = translations[locale] || translations['en'];
 
   return (
-    <div className="min-h-[100dvh] w-full text-white font-sans overflow-y-auto overflow-x-hidden bg-[#0a0a0a] relative selection:bg-[#C5A059]/30">
+    <div className="h-[100dvh] w-full text-white font-sans overflow-y-auto overflow-x-hidden bg-[#0a0a0a] relative selection:bg-[#C5A059]/30">
       {/* Background Effects */}
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#C5A059]/10 blur-[120px] pointer-events-none" />
       <div className="absolute top-[40%] right-[-10%] w-[400px] h-[400px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />

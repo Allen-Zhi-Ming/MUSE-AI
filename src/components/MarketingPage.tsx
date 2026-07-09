@@ -229,7 +229,7 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
   const t = translations[locale] || translations['en'];
 
   return (
-    <div className="h-[100dvh] w-full text-white font-sans overflow-y-auto overflow-x-hidden bg-[#0a0a0a] relative selection:bg-[#C5A059]/30">
+    <div className="h-[100dvh] w-full text-white font-sans overflow-y-auto overflow-x-hidden bg-[#0a0a0a] relative selection:bg-[#C5A059]/30 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
       {/* Background Effects */}
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#C5A059]/10 blur-[120px] pointer-events-none" />
       <div className="absolute top-[40%] right-[-10%] w-[400px] h-[400px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />
@@ -237,12 +237,20 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl flex items-center justify-center font-bold text-white shadow-lg bg-gradient-to-br from-[#D97706] to-[#BFA366]">M</div>
-          <span className="font-bold text-xl tracking-wider text-white" style={{ fontFamily: "'Inter', sans-serif" }}>{t.navTitle}</span>
+          <img src="/m-logo.png" alt="M" className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(197,160,89,0.5)]" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.style.display='flex'; }} />
+          <div className="hidden w-10 h-10 rounded-2xl items-center justify-center font-bold text-white shadow-lg bg-gradient-to-br from-[#E8A33E] to-[#BFA366] text-xl border border-white/20" style={{ display: 'none' }}>M</div>
+          <span className="font-bold text-xl tracking-wider text-white" style={{ fontFamily: "'Cinzel', serif", fontWeight: 700 }}>{t.navTitle}</span>
         </div>
         <div className="flex items-center gap-4">
-          <div className="relative group cursor-pointer flex items-center gap-2 text-white/70 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-            <Languages className="w-4 h-4" />
+          <div className="relative group cursor-pointer flex items-center gap-2 text-white/80 hover:text-white transition-colors bg-[#1a1a1a] px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-4 h-4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m5 8 6 6" />
+              <path d="m4 14 6-6 2-3" />
+              <path d="M2 5h12" />
+              <path d="M7 2h1" />
+              <path d="m22 22-5-10-5 10" />
+              <path d="M14 18h6" />
+            </svg>
             <select 
               value={locale}
               onChange={(e) => onLocaleChange(e.target.value as any)}
@@ -256,7 +264,7 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
           </div>
           <button 
             onClick={onLoginClick}
-            className="px-5 py-2 rounded-full font-bold text-sm shadow-[0_0_15px_rgba(197,160,89,0.3)] hover:shadow-[0_0_25px_rgba(197,160,89,0.5)] transition-all transform hover:-translate-y-0.5 text-white bg-gradient-to-r from-[#D97706] to-[#C5A059]"
+            className="px-6 py-2 rounded-full font-bold text-sm shadow-[0_0_15px_rgba(232,163,62,0.4)] hover:shadow-[0_0_25px_rgba(232,163,62,0.6)] transition-all transform hover:-translate-y-0.5 text-[#3D2E1A] bg-gradient-to-r from-[#F0C27B] to-[#E8A33E]"
           >
             {t.loginBtn}
           </button>

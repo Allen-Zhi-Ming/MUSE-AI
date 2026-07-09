@@ -6,12 +6,13 @@ import electron from 'vite-plugin-electron/simple';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+  const isVercel = process.env.VERCEL === '1';
   return {
     base: './', // IMPORTANT for Electron to load local files
     plugins: [
       react(), 
       tailwindcss(),
-      electron({
+      !isVercel && electron({
         main: {
           entry: 'electron/main.ts',
         },
@@ -19,7 +20,7 @@ export default defineConfig(({mode}) => {
           input: 'electron/preload.ts',
         },
       }),
-    ],
+    ].filter(Boolean),
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },

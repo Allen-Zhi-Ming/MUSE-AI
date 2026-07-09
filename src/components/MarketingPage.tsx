@@ -229,24 +229,24 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
   const t = translations[locale] || translations['en'];
 
   return (
-    <div className="min-h-[100dvh] w-full text-[#3D2E1A] font-sans overflow-y-auto overflow-x-hidden" style={{ background: "linear-gradient(135deg, #FAF8F5 0%, #E6DFD5 100%)" }}>
-      {/* Decorative Orbs to match LoginScreen aesthetic */}
-      <div style={{ position: "absolute", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(197, 160, 89, 0.06) 0%, rgba(197, 160, 89, 0) 70%)", top: "-10%", left: "-10%", filter: "blur(40px)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(108, 138, 192, 0.04) 0%, rgba(108, 138, 192, 0) 70%)", bottom: "-15%", right: "-10%", filter: "blur(50px)", pointerEvents: "none" }} />
-
+    <div className="min-h-[100dvh] w-full text-white font-sans overflow-y-auto overflow-x-hidden bg-[#0a0a0a] relative selection:bg-[#C5A059]/30">
+      {/* Background Effects */}
+      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#C5A059]/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[40%] right-[-10%] w-[400px] h-[400px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />
+      
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center" style={{ background: "rgba(250, 248, 245, 0.8)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(220, 215, 206, 0.6)" }}>
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shadow-md" style={{ background: "linear-gradient(135deg, #D97706 0%, #BFA366 100%)" }}>M</div>
-          <span className="font-bold text-xl tracking-wider text-[#C5A059]" style={{ fontFamily: "'Georgia', serif" }}>{t.navTitle}</span>
+          <div className="w-8 h-8 rounded-xl flex items-center justify-center font-bold text-white shadow-lg bg-gradient-to-br from-[#D97706] to-[#BFA366]">M</div>
+          <span className="font-bold text-xl tracking-wider text-white" style={{ fontFamily: "'Inter', sans-serif" }}>{t.navTitle}</span>
         </div>
         <div className="flex items-center gap-4">
-          <div className="relative group cursor-pointer flex items-center gap-2 text-[#8A7A66] hover:text-[#C5A059] transition-colors bg-white/50 px-3 py-1.5 rounded-full border border-[rgba(220,215,206,0.8)]">
+          <div className="relative group cursor-pointer flex items-center gap-2 text-white/70 hover:text-white transition-colors bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
             <Languages className="w-4 h-4" />
             <select 
               value={locale}
               onChange={(e) => onLocaleChange(e.target.value as any)}
-              className="appearance-none bg-transparent outline-none cursor-pointer text-sm font-medium pr-2"
+              className="appearance-none bg-transparent outline-none cursor-pointer text-sm font-medium pr-2 [&>option]:bg-[#1a1a1a]"
             >
               <option value="zh">繁體中文</option>
               <option value="en">English</option>
@@ -256,8 +256,7 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
           </div>
           <button 
             onClick={onLoginClick}
-            className="px-5 py-2 rounded-full font-bold text-sm shadow-[0_2px_10px_rgba(197,160,89,0.2)] hover:shadow-[0_4px_15px_rgba(197,160,89,0.3)] transition-all transform hover:-translate-y-0.5 text-white"
-            style={{ background: "linear-gradient(135deg, #D97706 0%, #C5A059 100%)" }}
+            className="px-5 py-2 rounded-full font-bold text-sm shadow-[0_0_15px_rgba(197,160,89,0.3)] hover:shadow-[0_0_25px_rgba(197,160,89,0.5)] transition-all transform hover:-translate-y-0.5 text-white bg-gradient-to-r from-[#D97706] to-[#C5A059]"
           >
             {t.loginBtn}
           </button>
@@ -265,15 +264,14 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-center text-center mt-12 z-10">
+      <section className="relative pt-40 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-center text-center z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-sm font-semibold border"
-          style={{ background: "rgba(255, 255, 255, 0.7)", borderColor: "rgba(197, 160, 89, 0.4)", color: "#C5A059" }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-sm font-medium border border-[#C5A059]/30 bg-[#C5A059]/10 text-[#E2C48D]"
         >
-          <span className="w-2 h-2 rounded-full bg-[#D97706] animate-pulse"></span>
+          <span className="w-2 h-2 rounded-full bg-[#E2C48D] animate-pulse"></span>
           {t.tagline}
         </motion.div>
         
@@ -281,11 +279,11 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold leading-tight mb-6"
-          style={{ fontFamily: "'Georgia', serif", color: "#3D2E1A" }}
+          className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 tracking-tight"
+          style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {t.heroTitlePart1} <br/>
-          <span style={{ background: "linear-gradient(135deg, #D97706 0%, #BFA366 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E2C48D] via-[#C5A059] to-[#D97706]">
             {t.heroTitlePart2}
           </span>
         </motion.h1>
@@ -294,7 +292,7 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl max-w-2xl text-[#8A7A66] mb-10 leading-relaxed"
+          className="text-lg md:text-xl max-w-2xl text-white/60 mb-10 leading-relaxed font-light"
         >
           {t.heroDesc}
         </motion.p>
@@ -307,49 +305,50 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
         >
           <button 
             onClick={onLoginClick}
-            className="px-8 py-4 rounded-full font-bold text-lg shadow-[0_4px_20px_rgba(197,160,89,0.3)] hover:shadow-[0_6px_25px_rgba(197,160,89,0.4)] transition-all transform hover:-translate-y-1 text-white"
-            style={{ background: "linear-gradient(135deg, #D97706 0%, #C5A059 100%)" }}
+            className="px-8 py-4 rounded-full font-bold text-lg shadow-[0_0_20px_rgba(197,160,89,0.3)] hover:shadow-[0_0_30px_rgba(197,160,89,0.5)] transition-all transform hover:-translate-y-1 text-[#0a0a0a] bg-gradient-to-r from-[#E2C48D] to-[#C5A059]"
           >
             {t.exploreBtn}
           </button>
-          <a href="#features" className="px-8 py-4 rounded-full font-bold text-lg bg-white/60 border hover:bg-white transition-all text-[#8A7A66]" style={{ borderColor: "rgba(220, 215, 206, 0.8)" }}>
+          <a href="#features" className="px-8 py-4 rounded-full font-medium text-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white backdrop-blur-sm">
             {t.learnMoreBtn}
           </a>
         </motion.div>
       </section>
 
       {/* App Preview Mockup / Decorative */}
-      <section className="max-w-5xl mx-auto px-6 mb-24 relative z-10">
+      <section className="max-w-5xl mx-auto px-6 mb-32 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="rounded-2xl border p-2 shadow-[0_20px_50px_rgba(61,46,26,0.08)] relative"
-          style={{ background: "rgba(255, 255, 255, 0.4)", backdropFilter: "blur(10px)", borderColor: "rgba(220, 215, 206, 0.6)" }}
+          className="rounded-2xl border border-white/10 p-2 shadow-[0_0_50px_rgba(0,0,0,0.5)] relative bg-black/40 backdrop-blur-xl"
         >
           <div className="absolute top-4 left-4 flex gap-2 z-20">
-            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-            <div className="w-3 h-3 rounded-full bg-green-400"></div>
+            <div className="w-3 h-3 rounded-full bg-white/20"></div>
+            <div className="w-3 h-3 rounded-full bg-white/20"></div>
+            <div className="w-3 h-3 rounded-full bg-white/20"></div>
           </div>
-          <div className="w-full aspect-[16/9] rounded-xl overflow-hidden relative" style={{ background: "#FAF9F6", border: "1px solid rgba(220, 215, 206, 0.4)" }}>
+          <div className="w-full aspect-[16/9] rounded-xl overflow-hidden relative bg-[#0f0f0f] border border-white/5">
              {/* Mockup interior content to show the "vibe" */}
              <div className="absolute inset-0 flex">
-                <div className="w-64 border-r p-4 hidden md:flex flex-col gap-4" style={{ borderColor: "rgba(220, 215, 206, 0.4)", background: "rgba(250, 248, 245, 0.5)" }}>
-                    <div className="h-6 w-32 rounded bg-black/5 mt-6 mb-2"></div>
-                    <div className="h-4 w-full rounded bg-black/5"></div>
-                    <div className="h-4 w-5/6 rounded bg-black/5"></div>
-                    <div className="h-4 w-4/6 rounded bg-black/5"></div>
+                <div className="w-64 border-r border-white/5 p-4 hidden md:flex flex-col gap-4 bg-[#0a0a0a]/50">
+                    <div className="h-6 w-32 rounded bg-white/5 mt-6 mb-2"></div>
+                    <div className="h-4 w-full rounded bg-white/5"></div>
+                    <div className="h-4 w-5/6 rounded bg-white/5"></div>
+                    <div className="h-4 w-4/6 rounded bg-white/5"></div>
                 </div>
-                <div className="flex-1 p-8 flex flex-col gap-6">
-                    <div className="h-8 w-64 rounded bg-[#C5A059]/10"></div>
-                    <div className="h-4 w-full rounded bg-black/5"></div>
-                    <div className="h-4 w-full rounded bg-black/5"></div>
-                    <div className="h-4 w-3/4 rounded bg-black/5"></div>
+                <div className="flex-1 p-8 flex flex-col gap-6 relative">
+                    {/* Inner glowing orb */}
+                    <div className="absolute top-[20%] left-[30%] w-[300px] h-[300px] rounded-full bg-[#C5A059]/5 blur-[80px] pointer-events-none" />
+                    
+                    <div className="h-8 w-64 rounded bg-gradient-to-r from-[#C5A059]/20 to-transparent"></div>
+                    <div className="h-4 w-full rounded bg-white/5"></div>
+                    <div className="h-4 w-full rounded bg-white/5"></div>
+                    <div className="h-4 w-3/4 rounded bg-white/5"></div>
                     <div className="mt-8 flex gap-4">
-                       <div className="h-32 flex-1 rounded-xl bg-gradient-to-br from-[#FAF8F5] to-[#E6DFD5] border border-[#C5A059]/20 shadow-sm"></div>
-                       <div className="h-32 flex-1 rounded-xl bg-gradient-to-br from-[#FAF8F5] to-[#E6DFD5] border border-[#C5A059]/20 shadow-sm"></div>
+                       <div className="h-32 flex-1 rounded-xl bg-white/5 border border-white/5 shadow-inner"></div>
+                       <div className="h-32 flex-1 rounded-xl bg-white/5 border border-white/5 shadow-inner"></div>
                     </div>
                 </div>
              </div>
@@ -358,11 +357,11 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
       </section>
 
       {/* Features Grid */}
-      <section id="features" className="py-24 relative z-10" style={{ background: "rgba(255, 255, 255, 0.3)", borderTop: "1px solid rgba(220, 215, 206, 0.4)" }}>
+      <section id="features" className="py-24 relative z-10 border-t border-white/5 bg-[#0a0a0a]/50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#3D2E1A]">{t.whyChooseTitle}</h2>
-            <p className="text-[#8A7A66]">{t.whyChooseSubtitle}</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight">{t.whyChooseTitle}</h2>
+            <p className="text-white/50 text-lg">{t.whyChooseSubtitle}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -373,14 +372,14 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-8 rounded-2xl hover:shadow-[0_15px_30px_rgba(138,110,62,0.1)] transition-all border group bg-white/60 hover:bg-white"
-                style={{ borderColor: "rgba(220, 215, 206, 0.6)" }}
+                className="p-8 rounded-2xl hover:shadow-[0_0_30px_rgba(197,160,89,0.1)] transition-all duration-300 border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#C5A059]/30 group relative overflow-hidden"
               >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm transition-transform group-hover:scale-110 group-hover:bg-[#C5A059] group-hover:text-white text-[#C5A059]" style={{ background: "rgba(197, 160, 89, 0.1)" }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#C5A059]/0 via-transparent to-[#C5A059]/0 group-hover:from-[#C5A059]/5 transition-all duration-500" />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-[#D97706] group-hover:to-[#C5A059] group-hover:text-[#0a0a0a] text-[#C5A059] bg-[#C5A059]/10 border border-[#C5A059]/20 group-hover:border-transparent relative z-10">
                   {iconMap[feature.icon]}
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-[#3D2E1A]">{feature.title}</h3>
-                <p className="text-[#8A7A66] leading-relaxed text-sm">
+                <h3 className="text-xl font-bold mb-3 text-white relative z-10">{feature.title}</h3>
+                <p className="text-white/60 leading-relaxed text-sm font-light relative z-10">
                   {feature.desc}
                 </p>
               </motion.div>
@@ -390,25 +389,25 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative z-10">
+      <section className="py-32 relative z-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="rounded-3xl p-12 shadow-[0_20px_40px_rgba(61,46,26,0.06)] border relative overflow-hidden"
-            style={{ background: "rgba(255, 255, 255, 0.6)", borderColor: "rgba(220, 215, 206, 0.8)" }}
+            className="rounded-3xl p-12 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 relative overflow-hidden bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-xl"
           >
-            <div className="absolute top-0 left-0 w-full h-1" style={{ background: "linear-gradient(90deg, #D97706, #BFA366)" }}></div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#3D2E1A]">{t.ctaTitle}</h2>
-            <p className="text-lg text-[#8A7A66] mb-10 max-w-2xl mx-auto">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#D97706] via-[#E2C48D] to-[#BFA366]"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#C5A059]/5 blur-[100px] pointer-events-none" />
+            
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white relative z-10 tracking-tight">{t.ctaTitle}</h2>
+            <p className="text-lg text-white/60 mb-10 max-w-2xl mx-auto relative z-10 font-light">
               {t.ctaDesc}
             </p>
             <button 
               onClick={onLoginClick}
-              className="px-10 py-4 rounded-full font-bold text-lg shadow-[0_4px_15px_rgba(197,160,89,0.3)] hover:shadow-[0_8px_25px_rgba(197,160,89,0.4)] transition-all transform hover:-translate-y-1 text-white"
-              style={{ background: "linear-gradient(135deg, #D97706 0%, #C5A059 100%)" }}
+              className="relative z-10 px-10 py-4 rounded-full font-bold text-lg shadow-[0_0_20px_rgba(197,160,89,0.3)] hover:shadow-[0_0_30px_rgba(197,160,89,0.5)] transition-all transform hover:-translate-y-1 text-[#0a0a0a] bg-gradient-to-r from-[#E2C48D] to-[#C5A059]"
             >
               {t.ctaBtn}
             </button>
@@ -417,13 +416,13 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-12 relative z-10" style={{ borderColor: "rgba(220, 215, 206, 0.6)", background: "rgba(250, 248, 245, 0.9)" }}>
+      <footer className="border-t border-white/5 py-12 relative z-10 bg-[#050505]">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 text-[#8A7A66] font-medium text-sm">
-            <div className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-white shadow-sm text-xs" style={{ background: "linear-gradient(135deg, #D97706 0%, #BFA366 100%)" }}>M</div>
+          <div className="flex items-center gap-3 text-white/50 font-medium text-sm">
+            <div className="w-6 h-6 rounded-lg flex items-center justify-center font-bold text-[#0a0a0a] shadow-sm text-xs bg-gradient-to-br from-[#E2C48D] to-[#C5A059]">M</div>
             <span>© {new Date().getFullYear()} {t.copyright}</span>
           </div>
-          <div className="flex gap-6 text-sm text-[#8A7A66]">
+          <div className="flex gap-6 text-sm text-white/50 font-light">
             <a href="#" className="hover:text-[#C5A059] transition-colors">{t.aboutMusedini}</a>
             <a href="#" className="hover:text-[#C5A059] transition-colors">{t.terms}</a>
             <a href="#" className="hover:text-[#C5A059] transition-colors">{t.privacy}</a>

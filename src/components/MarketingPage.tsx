@@ -25,6 +25,7 @@ const translations = {
     ctaDesc: "無論是深度研究、文學創作還是專業報告，Muse AI 都能為您提供最優雅的撰寫與整理體驗。",
     ctaBtn: "免費建立個人工作區",
     aboutMusedini: "關於 Musedini",
+    guide: "公開指南",
     terms: "服務條款",
     privacy: "隱私權政策",
     copyright: "Musedini. 保留所有權利。",
@@ -76,6 +77,7 @@ const translations = {
     ctaDesc: "Whether it's in-depth research, literary creation, or professional reports, Muse AI provides you with the most elegant writing and organizing experience.",
     ctaBtn: "Create Free Workspace",
     aboutMusedini: "About Musedini",
+    guide: "Public guide",
     terms: "Terms of Service",
     privacy: "Privacy Policy",
     copyright: "Musedini. All rights reserved.",
@@ -127,6 +129,7 @@ const translations = {
     ctaDesc: "綿密な調査、文学的創作、専門的なレポートなど、Muse AI は最もエレガントな執筆と整理の体験を提供します。",
     ctaBtn: "無料のワークスペースを作成",
     aboutMusedini: "Musedini について",
+    guide: "公開ガイド",
     terms: "利用規約",
     privacy: "プライバシーポリシー",
     copyright: "Musedini. All rights reserved.",
@@ -178,6 +181,7 @@ const translations = {
     ctaDesc: "심층 연구, 문학 창작, 전문 보고서 등 어떤 작업이든 Muse AI는 가장 우아한 글쓰기 및 정리 경험을 제공합니다.",
     ctaBtn: "무료 워크스페이스 생성",
     aboutMusedini: "Musedini 소개",
+    guide: "공개 가이드",
     terms: "이용약관",
     privacy: "개인정보처리방침",
     copyright: "Musedini. All rights reserved.",
@@ -431,6 +435,7 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
             <span>© {new Date().getFullYear()} {t.copyright}</span>
           </div>
           <div className="flex gap-6 text-sm text-white/50 font-light">
+            <a href="/guide/index.html" className="hover:text-[#C5A059] transition-colors">{t.guide}</a>
             <a href="#" className="hover:text-[#C5A059] transition-colors">{t.aboutMusedini}</a>
             <a href="#" className="hover:text-[#C5A059] transition-colors">{t.terms}</a>
             <a href="#" className="hover:text-[#C5A059] transition-colors">{t.privacy}</a>

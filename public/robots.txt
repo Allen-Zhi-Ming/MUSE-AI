@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://museai.musedini.com/sitemap.xml

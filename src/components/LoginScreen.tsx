@@ -148,7 +148,10 @@ export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: an
             sessionStorage.setItem(attemptKey, "1");
             const { error } = await supabase.auth.signInWithOAuth({
               provider: "google",
-              options: { redirectTo: `${window.location.origin}/?sso=1` }
+              options: {
+                redirectTo: `${window.location.origin}/?sso=1`,
+                queryParams: { prompt: "none" }
+              }
             });
             if (error) sessionStorage.removeItem(attemptKey);
           }

@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { T } from "../constants";
 
+function mapSupabaseUser(user: any) {
+  return {
+    id: user.id,
+    name: user.user_metadata?.full_name || user.user_metadata?.name || user.email?.split("@")[0] || "Musedini 會員",
+    email: user.email || "",
+    avatar: user.user_metadata?.avatar_url || user.user_metadata?.picture || "M",
+    provider: "google"
+  };
+}
+
 export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: any) {
   const [googleLoaded, setGoogleLoaded] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -26,6 +36,25 @@ export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: an
       console.error(err);
       setErrorMessage(err.message || "伺服器連線異常，請確認後端已啟動");
     } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleWebGoogleLogin = async () => {
+    setLoading(true);
+    setErrorMessage(null);
+    try {
+      const { supabase } = await import("../lib/supabaseClient");
+      if (!supabase) throw new Error("MUSE AI 的共用會員登入尚未設定。");
+      sessionStorage.setItem("muse_musedini_sso_attempted", "1");
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: `${window.location.origin}/` }
+      });
+      if (error) throw error;
+    } catch (err: any) {
+      sessionStorage.removeItem("muse_musedini_sso_attempted");
+      setErrorMessage(err.message || "Google 登入啟動失敗");
       setLoading(false);
     }
   };
@@ -67,6 +96,78 @@ export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: an
   };
 
   useEffect(() => {
+    if (!window.museAPI) {
+      let disposed = false;
+      let unsubscribe: (() => void) | undefined;
+
+      const restoreWebSession = async () => {
+        const { supabase } = await import("../lib/supabaseClient");
+        if (disposed) return;
+        if (!supabase) {
+          setGoogleLoaded(false);
+          setErrorMessage("MUSE AI 的共用會員登入尚未設定。");
+          return;
+        }
+
+        const acceptSession = (session: any) => {
+          if (!session?.user || disposed) return false;
+          const user = mapSupabaseUser(session.user);
+          localStorage.setItem("muse_user_session", JSON.stringify(user));
+          sessionStorage.removeItem("muse_musedini_sso_attempted");
+          const currentUrl = new URL(window.location.href);
+          if (currentUrl.searchParams.has("sso")) {
+            currentUrl.searchParams.delete("sso");
+            window.history.replaceState({}, document.title, currentUrl.pathname + currentUrl.search + currentUrl.hash);
+          }
+          dispatch({ type: "LOGIN_SUCCESS", user });
+          return true;
+        };
+
+        const { data: sessionData } = await supabase.auth.getSession();
+        if (acceptSession(sessionData.session)) return;
+
+        const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+          acceptSession(session);
+        });
+        unsubscribe = () => authListener.subscription.unsubscribe();
+        setGoogleLoaded(true);
+
+        const attemptKey = "muse_musedini_sso_attempted";
+        if (sessionStorage.getItem(attemptKey)) return;
+        const controller = new AbortController();
+        const timeoutId = window.setTimeout(() => controller.abort(), 3500);
+        try {
+          const response = await fetch("https://www.musedini.com/api/sso/status", {
+            credentials: "include",
+            mode: "cors",
+            cache: "no-store",
+            signal: controller.signal
+          });
+          const payload = await response.json().catch(() => null) as { authenticated?: boolean } | null;
+          if (!disposed && response.ok && payload?.authenticated) {
+            sessionStorage.setItem(attemptKey, "1");
+            const { error } = await supabase.auth.signInWithOAuth({
+              provider: "google",
+              options: { redirectTo: `${window.location.origin}/?sso=1` }
+            });
+            if (error) sessionStorage.removeItem(attemptKey);
+          }
+        } catch {
+          // Central SSO is an enhancement; the normal MUSE AI login remains available.
+        } finally {
+          window.clearTimeout(timeoutId);
+        }
+      };
+
+      restoreWebSession().catch((error) => {
+        if (!disposed) setErrorMessage(error instanceof Error ? error.message : "會員登入初始化失敗");
+      });
+      return () => {
+        disposed = true;
+        unsubscribe?.();
+      };
+    }
+
     const scriptId = "google-gis-sdk";
     let script = document.getElementById(scriptId) as HTMLScriptElement;
     
@@ -101,7 +202,7 @@ export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: an
         initButton();
       };
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div style={{
@@ -236,15 +337,36 @@ export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: an
             <>
               {/* Google Button Container Wrapper (Ensures visibility state is fully respected by overriding any third-party SDK dynamic styles) */}
               <div style={{ display: !showCustomLogin ? "flex" : "none", width: "100%", justifyContent: "center", marginBottom: !showCustomLogin ? 12 : 0 }}>
-                <div 
-                  id="google-signin-btn-container" 
-                  style={{ 
-                    display: "flex",
-                    minHeight: 40, 
-                    justifyContent: "center",
-                    width: "100%"
-                  }} 
-                />
+                {window.museAPI ? (
+                  <div
+                    id="google-signin-btn-container"
+                    style={{
+                      display: "flex",
+                      minHeight: 40,
+                      justifyContent: "center",
+                      width: "100%"
+                    }}
+                  />
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleWebGoogleLogin}
+                    disabled={!googleLoaded}
+                    style={{
+                      width: 280,
+                      minHeight: 40,
+                      borderRadius: 20,
+                      border: "1px solid #DADCE0",
+                      background: "#FFFFFF",
+                      color: "#3C4043",
+                      fontSize: 14,
+                      fontWeight: 600,
+                      cursor: googleLoaded ? "pointer" : "wait"
+                    }}
+                  >
+                    使用 Google 帳號登入
+                  </button>
+                )}
               </div>
 
               {!showCustomLogin ? (

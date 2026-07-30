@@ -114,6 +114,7 @@ export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: an
           const user = mapSupabaseUser(session.user);
           localStorage.setItem("muse_user_session", JSON.stringify(user));
           sessionStorage.removeItem("muse_musedini_sso_attempted");
+          sessionStorage.removeItem("muse_musedini_sso_attempted_v2");
           const currentUrl = new URL(window.location.href);
           if (currentUrl.searchParams.has("sso")) {
             currentUrl.searchParams.delete("sso");
@@ -132,7 +133,7 @@ export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: an
         unsubscribe = () => authListener.subscription.unsubscribe();
         setGoogleLoaded(true);
 
-        const attemptKey = "muse_musedini_sso_attempted";
+        const attemptKey = "muse_musedini_sso_attempted_v2";
         if (sessionStorage.getItem(attemptKey)) return;
         const controller = new AbortController();
         const timeoutId = window.setTimeout(() => controller.abort(), 3500);
@@ -143,14 +144,17 @@ export function LoginScreen({ state, dispatch, setShowLegalModal, isMobile }: an
             cache: "no-store",
             signal: controller.signal
           });
-          const payload = await response.json().catch(() => null) as { authenticated?: boolean } | null;
-          if (!disposed && response.ok && payload?.authenticated) {
+          const payload = await response.json().catch(() => null) as {
+            authenticated?: boolean;
+            loginHint?: string | null;
+          } | null;
+          if (!disposed && response.ok && payload?.authenticated && payload.loginHint) {
             sessionStorage.setItem(attemptKey, "1");
             const { error } = await supabase.auth.signInWithOAuth({
               provider: "google",
               options: {
                 redirectTo: `${window.location.origin}/?sso=1`,
-                queryParams: { prompt: "none" }
+                queryParams: { prompt: "none", login_hint: payload.loginHint }
               }
             });
             if (error) sessionStorage.removeItem(attemptKey);

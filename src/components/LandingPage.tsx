@@ -10,7 +10,13 @@ interface LandingPageProps {
 }
 
 export const LandingPage = ({ state, dispatch, setShowLegalModal, isMobile }: LandingPageProps) => {
-  const [showAuth, setShowAuth] = useState(false);
+  const [showAuth, setShowAuth] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    const hash = window.location.hash;
+    const hasOAuthResponse = /(?:^|[&#])(access_token|refresh_token|error|error_description)=/.test(hash);
+
+    return params.get('sso') === '1' || hasOAuthResponse;
+  });
   const [locale, setLocale] = useState<'zh' | 'en' | 'ja' | 'ko'>(() => {
     const saved = localStorage.getItem('muse_locale');
     if (saved === 'en' || saved === 'zh' || saved === 'ja' || saved === 'ko') return saved;

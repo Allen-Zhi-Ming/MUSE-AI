@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import MarketingPage from './MarketingPage';
 import { LoginScreen } from './LoginScreen';
+import {
+  persistMuseLocale,
+  readInitialMuseLocale,
+  subscribeToSharedMuseLocale,
+  type MuseLocale,
+} from '../lib/musediniLocale';
 
 interface LandingPageProps {
   state: any;
@@ -17,19 +23,21 @@ export const LandingPage = ({ state, dispatch, setShowLegalModal, isMobile }: La
 
     return params.get('sso') === '1' || hasOAuthResponse;
   });
-  const [locale, setLocale] = useState<'zh' | 'en' | 'ja' | 'ko'>(() => {
-    const saved = localStorage.getItem('muse_locale');
-    if (saved === 'en' || saved === 'zh' || saved === 'ja' || saved === 'ko') return saved;
-    const lang = navigator.language.toLowerCase();
-    if (lang.startsWith('zh')) return 'zh';
-    if (lang.startsWith('ja')) return 'ja';
-    if (lang.startsWith('ko')) return 'ko';
-    return 'en';
-  });
+  const [locale, setLocale] = useState<MuseLocale>(readInitialMuseLocale);
 
   useEffect(() => {
-    localStorage.setItem('muse_locale', locale);
+    persistMuseLocale(locale);
   }, [locale]);
+
+  useEffect(() => subscribeToSharedMuseLocale(setLocale), []);
+
+  const backHomeLabel: Record<MuseLocale, string> = {
+    zh: '返回首頁',
+    'zh-Hans': '返回首页',
+    en: 'Back to home',
+    ja: 'ホームへ戻る',
+    ko: '홈으로 돌아가기',
+  };
 
   // If user clicks login on the marketing page, we show the actual LoginScreen
   if (showAuth) {
@@ -72,7 +80,7 @@ export const LandingPage = ({ state, dispatch, setShowLegalModal, isMobile }: La
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="m15 18-6-6 6-6"/>
           </svg>
-          返回首頁
+          {backHomeLabel[locale]}
         </button>
 
         {/* Original Login Screen */}

@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Zap, Shield, FileText, Smartphone, Network, Languages, PenTool, LayoutTemplate, History } from 'lucide-react';
 import { T } from '../constants'; // For theme colors if needed, though we will use Tailwind mostly for structure and inline styles for exact Morandi colors.
+import type { MuseLocale } from '../lib/musediniLocale';
 
 interface MarketingPageProps {
   onLoginClick: () => void;
-  locale: 'zh' | 'en' | 'ja' | 'ko';
-  onLocaleChange: (locale: 'zh' | 'en' | 'ja' | 'ko') => void;
+  locale: MuseLocale;
+  onLocaleChange: (locale: MuseLocale) => void;
 }
 
 const translations = {
@@ -59,6 +60,58 @@ const translations = {
         icon: "LayoutTemplate",
         title: "莫蘭迪美學介面",
         desc: "低飽和度的莫蘭迪色系設計，減少長時間工作的視覺疲勞，打造沉浸式、純粹的頂級寫作環境。"
+      }
+    ]
+  },
+  'zh-Hans': {
+    navTitle: "MUSE AI",
+    loginBtn: "开启工作区",
+    tagline: "高奢智能写作与个人企划案沙盒",
+    heroTitlePart1: "重塑灵感，",
+    heroTitlePart2: "淬炼卓越文字",
+    heroDesc: "Muse AI 专为极致内容创作者打造。融合 Local-First 本地隐私与强大 AI 协作，这是一个纯净、无干扰的智能写作与文件管理宇宙，让您的每一个点子都能优雅落地。",
+    exploreBtn: "立即进入沙盒",
+    learnMoreBtn: "探索功能",
+    whyChooseTitle: "为何选择 MUSE AI？",
+    whyChooseSubtitle: "专为高价值内容创造而生的基础架构",
+    ctaTitle: "准备好开始您的下一个伟大企划了吗？",
+    ctaDesc: "无论是深度研究、文学创作还是专业报告，Muse AI 都能为您提供最优雅的撰写与整理体验。",
+    ctaBtn: "免费建立个人工作区",
+    aboutMusedini: "关于 Musedini",
+    guide: "公开指南",
+    terms: "服务条款",
+    privacy: "隐私权政策",
+    copyright: "Musedini. 保留所有权利。",
+    features: [
+      {
+        icon: "Shield",
+        title: "极致隐私保护 (Local-First)",
+        desc: "您的创作心血默认储存于设备本地端。在单机沙盒模式下，给您最高规格的安全感与隐私保护。"
+      },
+      {
+        icon: "PenTool",
+        title: "智能写作助理",
+        desc: "整合顶尖大型语言模型，随时为您提供灵感启发、文章续写、语气润饰与结构重组，成为您的第二大脑。"
+      },
+      {
+        icon: "Network",
+        title: "灵动树状整理",
+        desc: "极致流畅的树状双端拖放体验，让思绪与资料层级平滑归位、井然有序，告别凌乱的文件夹。"
+      },
+      {
+        icon: "History",
+        title: "时光沙盒 (版本控制)",
+        desc: "仿若时光机的 Git-like 版本历史，逐行还原灵感蜕变与卓越演进，让您随时找回最初的感动。"
+      },
+      {
+        icon: "FileText",
+        title: "无缝格式导出",
+        desc: "支持一键生成 100% 真实 PDF、Word 及 Excel 格式，无缝联动您的日常办公与专业出版系统。"
+      },
+      {
+        icon: "LayoutTemplate",
+        title: "莫兰迪美学界面",
+        desc: "低饱和度的莫兰迪色系设计，减少长时间工作的视觉疲劳，打造沉浸式、纯粹的顶级写作环境。"
       }
     ]
   },
@@ -241,7 +294,16 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3">
-          <img src="/m-logo.png" alt="M" className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(197,160,89,0.5)]" onError={(e) => { e.currentTarget.style.display='none'; e.currentTarget.nextElementSibling!.style.display='flex'; }} />
+          <img
+            src="/m-logo.png"
+            alt="M"
+            className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(197,160,89,0.5)]"
+            onError={(event) => {
+              event.currentTarget.style.display = 'none';
+              const fallback = event.currentTarget.nextElementSibling as HTMLElement | null;
+              if (fallback) fallback.style.display = 'flex';
+            }}
+          />
           <div className="hidden w-10 h-10 rounded-2xl items-center justify-center font-bold text-white shadow-lg bg-gradient-to-br from-[#E8A33E] to-[#BFA366] text-xl border border-white/20" style={{ display: 'none' }}>M</div>
           <span className="font-bold text-xl tracking-wider text-white" style={{ fontFamily: "'Cinzel', serif", fontWeight: 700 }}>{t.navTitle}</span>
         </div>
@@ -261,6 +323,7 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
               className="appearance-none bg-transparent outline-none cursor-pointer text-sm font-medium pr-2 [&>option]:bg-[#1a1a1a]"
             >
               <option value="zh">繁體中文</option>
+              <option value="zh-Hans">简体中文</option>
               <option value="en">English</option>
               <option value="ja">日本語</option>
               <option value="ko">한국어</option>

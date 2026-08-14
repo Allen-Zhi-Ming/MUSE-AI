@@ -3,7 +3,6 @@ import { T, MODES, SYS, STUDIO_SYS, JOURNAL_SYS, COMM_SCENARIOS, INSPI_SYS, GROW
 import { Sidebar, ProjGrid, PvPanel, ProjRP, FileTree, BriefEd, StudioRightPanel, JournalRightPanel, MarketRightPanel, MemoryRightPanel, GrowthRightPanel, HabitRightPanel, CommRightPanel } from "./components/Navigation";
 import { ChatEngine, StudioView } from "./components/Views";
 import { Btn } from "./components/Common";
-import { LoginScreen } from "./components/LoginScreen";
 import { LandingPage } from "./components/LandingPage";
 import { SplashScreen } from "./components/SplashScreen";
 import { AuthLayout } from "./layouts/AuthLayout";
@@ -937,7 +936,7 @@ export default function App() {
   if (!state.user) {
     return (
       <AuthLayout isMobileFrame={isMobileFrame} frameBg="#fff" bottomBarBg={T.bgCard}>
-        <LandingPage state={state} dispatch={dispatch} setShowLegalModal={setShowLegalModal} isMobile={isMobile} />
+        <LandingPage />
         {renderGlobalDeveloperSwitcher()}
       </AuthLayout>
     );

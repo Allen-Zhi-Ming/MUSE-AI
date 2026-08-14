@@ -9,7 +9,8 @@
     "build": "vite build && electron-builder",
     "start": "vite preview",
     "clean": "rm -rf dist dist-electron",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "verify:public-beta": "node scripts/verify-public-closed-beta.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",

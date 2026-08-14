@@ -5,7 +5,6 @@ import { T } from '../constants'; // For theme colors if needed, though we will 
 import type { MuseLocale } from '../lib/musediniLocale';
 
 interface MarketingPageProps {
-  onLoginClick: () => void;
   locale: MuseLocale;
   onLocaleChange: (locale: MuseLocale) => void;
 }
@@ -14,6 +13,7 @@ const translations = {
   zh: {
     navTitle: "MUSE AI",
     loginBtn: "開啟工作區",
+    closedBeta: "封測中",
     tagline: "高奢智慧寫作與個人企劃案沙盒",
     heroTitlePart1: "重塑靈感，",
     heroTitlePart2: "淬鍊卓越文字",
@@ -66,6 +66,7 @@ const translations = {
   'zh-Hans': {
     navTitle: "MUSE AI",
     loginBtn: "开启工作区",
+    closedBeta: "封测中",
     tagline: "高奢智能写作与个人企划案沙盒",
     heroTitlePart1: "重塑灵感，",
     heroTitlePart2: "淬炼卓越文字",
@@ -118,6 +119,7 @@ const translations = {
   en: {
     navTitle: "MUSE AI",
     loginBtn: "Launch Workspace",
+    closedBeta: "Closed beta",
     tagline: "Premium Smart Writing & Personal Project Sandbox",
     heroTitlePart1: "Reshape Inspiration,",
     heroTitlePart2: "Refine Excellence",
@@ -170,6 +172,7 @@ const translations = {
   ja: {
     navTitle: "MUSE AI",
     loginBtn: "ワークスペースを開く",
+    closedBeta: "クローズドベータ",
     tagline: "高級なスマート執筆＆個人プロジェクトサンドボックス",
     heroTitlePart1: "インスピレーションを再構築し、",
     heroTitlePart2: "卓越した文章を磨き上げる",
@@ -222,6 +225,7 @@ const translations = {
   ko: {
     navTitle: "MUSE AI",
     loginBtn: "워크스페이스 열기",
+    closedBeta: "비공개 베타",
     tagline: "프리미엄 스마트 글쓰기 및 개인 프로젝트 샌드박스",
     heroTitlePart1: "영감을 재구성하고,",
     heroTitlePart2: "탁월함을 정제하다",
@@ -282,7 +286,7 @@ const iconMap: Record<string, React.ReactNode> = {
   LayoutTemplate: <LayoutTemplate className="w-6 h-6" />
 };
 
-const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPageProps) => {
+const MarketingPage = ({ locale, onLocaleChange }: MarketingPageProps) => {
   const t = translations[locale] || translations['en'];
 
   return (
@@ -330,10 +334,12 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
             </select>
           </div>
           <button 
-            onClick={onLoginClick}
-            className="px-6 py-2 rounded-full font-bold text-sm shadow-[0_0_15px_rgba(232,163,62,0.4)] hover:shadow-[0_0_25px_rgba(232,163,62,0.6)] transition-all transform hover:-translate-y-0.5 text-[#3D2E1A] bg-gradient-to-r from-[#F0C27B] to-[#E8A33E]"
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="px-6 py-2 rounded-full font-bold text-sm text-[#3D2E1A] bg-gradient-to-r from-[#F0C27B] to-[#E8A33E] opacity-75 cursor-not-allowed"
           >
-            {t.loginBtn}
+            {t.closedBeta}
           </button>
         </div>
       </nav>
@@ -379,10 +385,12 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
           className="flex flex-col sm:flex-row gap-4"
         >
           <button 
-            onClick={onLoginClick}
-            className="px-8 py-4 rounded-full font-bold text-lg shadow-[0_0_20px_rgba(197,160,89,0.3)] hover:shadow-[0_0_30px_rgba(197,160,89,0.5)] transition-all transform hover:-translate-y-1 text-[#0a0a0a] bg-gradient-to-r from-[#E2C48D] to-[#C5A059]"
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="px-8 py-4 rounded-full font-bold text-lg text-[#0a0a0a] bg-gradient-to-r from-[#E2C48D] to-[#C5A059] opacity-75 cursor-not-allowed"
           >
-            {t.exploreBtn}
+            {t.closedBeta}
           </button>
           <a href="#features" className="px-8 py-4 rounded-full font-medium text-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white backdrop-blur-sm">
             {t.learnMoreBtn}
@@ -481,10 +489,12 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
               {t.ctaDesc}
             </p>
             <button 
-              onClick={onLoginClick}
-              className="relative z-10 px-10 py-4 rounded-full font-bold text-lg shadow-[0_0_20px_rgba(197,160,89,0.3)] hover:shadow-[0_0_30px_rgba(197,160,89,0.5)] transition-all transform hover:-translate-y-1 text-[#0a0a0a] bg-gradient-to-r from-[#E2C48D] to-[#C5A059]"
+              type="button"
+              disabled
+              aria-disabled="true"
+              className="relative z-10 px-10 py-4 rounded-full font-bold text-lg text-[#0a0a0a] bg-gradient-to-r from-[#E2C48D] to-[#C5A059] opacity-75 cursor-not-allowed"
             >
-              {t.ctaBtn}
+              {t.closedBeta}
             </button>
           </motion.div>
         </div>
@@ -499,9 +509,9 @@ const MarketingPage = ({ onLoginClick, locale, onLocaleChange }: MarketingPagePr
           </div>
           <div className="flex gap-6 text-sm text-white/50 font-light">
             <a href="/guide/index.html" className="hover:text-[#C5A059] transition-colors">{t.guide}</a>
-            <a href="#" className="hover:text-[#C5A059] transition-colors">{t.aboutMusedini}</a>
-            <a href="#" className="hover:text-[#C5A059] transition-colors">{t.terms}</a>
-            <a href="#" className="hover:text-[#C5A059] transition-colors">{t.privacy}</a>
+            <a href="https://www.musedini.com/about" className="hover:text-[#C5A059] transition-colors">{t.aboutMusedini}</a>
+            <a href="https://www.musedini.com/legal/terms-of-service" className="hover:text-[#C5A059] transition-colors">{t.terms}</a>
+            <a href="https://www.musedini.com/legal/privacy-policy" className="hover:text-[#C5A059] transition-colors">{t.privacy}</a>
           </div>
         </div>
       </footer>

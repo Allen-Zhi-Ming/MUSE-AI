@@ -296,12 +296,12 @@ const MarketingPage = ({ locale, onLocaleChange }: MarketingPageProps) => {
       <div className="absolute top-[40%] right-[-10%] w-[400px] h-[400px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />
       
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/40 backdrop-blur-md border-b border-white/5">
-        <div className="flex items-center gap-3">
+      <nav className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-3 bg-black/40 backdrop-blur-md border-b border-white/5">
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
           <img
             src="/m-logo.png"
             alt="M"
-            className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(197,160,89,0.5)]"
+            className="w-9 h-9 sm:w-10 sm:h-10 flex-none object-contain drop-shadow-[0_0_10px_rgba(197,160,89,0.5)]"
             onError={(event) => {
               event.currentTarget.style.display = 'none';
               const fallback = event.currentTarget.nextElementSibling as HTMLElement | null;
@@ -309,10 +309,10 @@ const MarketingPage = ({ locale, onLocaleChange }: MarketingPageProps) => {
             }}
           />
           <div className="hidden w-10 h-10 rounded-2xl items-center justify-center font-bold text-white shadow-lg bg-gradient-to-br from-[#E8A33E] to-[#BFA366] text-xl border border-white/20" style={{ display: 'none' }}>M</div>
-          <span className="font-bold text-xl tracking-wider text-white" style={{ fontFamily: "'Cinzel', serif", fontWeight: 700 }}>{t.navTitle}</span>
+          <span className="whitespace-nowrap font-bold text-base sm:text-xl tracking-wider text-white" style={{ fontFamily: "'Cinzel', serif", fontWeight: 700 }}>{t.navTitle}</span>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="relative group cursor-pointer flex items-center gap-2 text-white/80 hover:text-white transition-colors bg-[#1a1a1a] px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
+        <div className="flex flex-none items-center gap-2 sm:gap-4">
+          <div className="relative group cursor-pointer flex items-center gap-1 sm:gap-2 text-white/80 hover:text-white transition-colors bg-[#1a1a1a] px-2 sm:px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-4 h-4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m5 8 6 6" />
               <path d="m4 14 6-6 2-3" />
@@ -324,7 +324,7 @@ const MarketingPage = ({ locale, onLocaleChange }: MarketingPageProps) => {
             <select 
               value={locale}
               onChange={(e) => onLocaleChange(e.target.value as any)}
-              className="appearance-none bg-transparent outline-none cursor-pointer text-sm font-medium pr-2 [&>option]:bg-[#1a1a1a]"
+              className="w-[64px] sm:w-auto appearance-none bg-transparent outline-none cursor-pointer text-xs sm:text-sm font-medium sm:pr-2 [&>option]:bg-[#1a1a1a]"
             >
               <option value="zh">繁體中文</option>
               <option value="zh-Hans">简体中文</option>
@@ -337,7 +337,7 @@ const MarketingPage = ({ locale, onLocaleChange }: MarketingPageProps) => {
             type="button"
             disabled
             aria-disabled="true"
-            className="px-6 py-2 rounded-full font-bold text-sm text-[#3D2E1A] bg-gradient-to-r from-[#F0C27B] to-[#E8A33E] opacity-75 cursor-not-allowed"
+            className="flex-none whitespace-nowrap px-3 sm:px-6 py-2 rounded-full font-bold text-[11px] sm:text-sm text-[#3D2E1A] bg-gradient-to-r from-[#F0C27B] to-[#E8A33E] opacity-75 cursor-not-allowed"
           >
             {t.closedBeta}
           </button>
